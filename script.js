@@ -1,17 +1,23 @@
 const container = document.getElementById("container");
-
+let arr = ['blue','red','yellow','orange',
+           'purple',,'green',]
 function makeRows(rows, cols) {
   container.style.setProperty('--grid-rows', rows);
   container.style.setProperty('--grid-cols', cols);
+  let size = 960/rows;
+  let sizeString = size.toString() + 'px'
+  console.log(size)
+  container.style.setProperty('--size',sizeString)
   for (c = 0; c < (rows * cols); c++) {
     let cell = document.createElement("div");
+    cell.style.backgroundColor='white';
     cell.addEventListener('mouseover',()=>{
-        if(cell.style.backgroundColor==='black'){
+        if(cell.style.backgroundColor!=='white'){
             cell.style.backgroundColor='white'; 
 
         }
         else{
-            cell.style.backgroundColor='black'; 
+            cell.style.backgroundColor= arr[Math.floor((Math.random()*arr.length))]; 
         }
         
     });
@@ -40,7 +46,11 @@ function removeGrid(){
 }
 
 function gridSize(){
-    let size = prompt("Input a value less than 100");
+    let size=101;
+    while(size>50) {
+        size = prompt("Input a value less than 100");
+
+    }
     removeGrid()
     makeRows(size,size)
 }

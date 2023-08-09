@@ -5,8 +5,8 @@
   
   #container {
     display: grid;
-    grid-template-rows: repeat(var(--grid-rows), 40px);
-    grid-template-columns: repeat(var(--grid-cols), 40px);
+    grid-template-rows: repeat(var(--grid-rows),var(--size));
+    grid-template-columns: repeat(var(--grid-cols),var(--size));
     justify-content: center;
   }
   
